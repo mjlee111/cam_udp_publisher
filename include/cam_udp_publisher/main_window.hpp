@@ -37,6 +37,7 @@ public:
   ~MainWindow();
 
 public Q_SLOTS:
+  void on_btnGit_clicked();
 
 private:
   Ui::MainWindowDesign ui;

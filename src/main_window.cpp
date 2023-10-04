@@ -43,6 +43,10 @@ MainWindow::~MainWindow()
 {
 }
 
+void MainWindow::on_btnGit_clicked()
+{
+  system("xdg-open https://github.com/mjlee111");
+}
 /*****************************************************************************
 ** Functions
 *****************************************************************************/
