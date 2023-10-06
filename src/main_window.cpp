@@ -148,17 +148,26 @@ void MainWindow::on_btnListReload_clicked()
 void MainWindow::on_btn1_clicked()
 {
   int num = 0;
+  QString text = ui.iptIP1->toPlainText();
+  if (text.isEmpty())
+  {
+    QMessageBox::warning(this, "Warning", "Target IP not set");
+    return;
+  }
   address[num] = QHostAddress(ui.iptIP1->toPlainText());
   portList[num] = ui.iptPort1->toPlainText().toUShort();
-  std::cout << ui.iptIP1->toPlainText().toStdString() << ui.iptPort1->toPlainText().toStdString() << std::endl;
   if (!isConnected[num])
   {
     ui.btn1->setStyleSheet(styleSheetGreen);
+    std::cout << "[UDP Publisher] : Starting Stream " << ui.iptIP1->toPlainText().toStdString()
+              << ui.iptPort1->toPlainText().toStdString() << std::endl;
     isConnected[num] = true;
   }
   else if (isConnected[num])
   {
     ui.btn1->setStyleSheet(styleSheetWhite);
+    std::cout << "[UDP Publisher] : Ending Stream " << ui.iptIP1->toPlainText().toStdString()
+              << ui.iptPort1->toPlainText().toStdString() << std::endl;
     isConnected[num] = false;
   }
 }
@@ -166,17 +175,26 @@ void MainWindow::on_btn1_clicked()
 void MainWindow::on_btn2_clicked()
 {
   int num = 1;
+  QString text = ui.iptIP2->toPlainText();
+  if (text.isEmpty())
+  {
+    QMessageBox::warning(this, "Warning", "Target IP not set");
+    return;
+  }
   address[num] = QHostAddress(ui.iptIP2->toPlainText());
   portList[num] = ui.iptPort2->toPlainText().toUShort();
-  std::cout << ui.iptIP2->toPlainText().toStdString() << ui.iptPort2->toPlainText().toStdString() << std::endl;
   if (!isConnected[num])
   {
     ui.btn2->setStyleSheet(styleSheetGreen);
+    std::cout << "[UDP Publisher] : Starting Stream " << ui.iptIP1->toPlainText().toStdString()
+              << ui.iptPort1->toPlainText().toStdString() << std::endl;
     isConnected[num] = true;
   }
   else if (isConnected[num])
   {
     ui.btn2->setStyleSheet(styleSheetWhite);
+    std::cout << "[UDP Publisher] : Ending Stream " << ui.iptIP1->toPlainText().toStdString()
+              << ui.iptPort1->toPlainText().toStdString() << std::endl;
     isConnected[num] = false;
   }
 }
@@ -184,17 +202,26 @@ void MainWindow::on_btn2_clicked()
 void MainWindow::on_btn3_clicked()
 {
   int num = 2;
+  QString text = ui.iptIP3->toPlainText();
+  if (text.isEmpty())
+  {
+    QMessageBox::warning(this, "Warning", "Target IP not set");
+    return;
+  }
   address[num] = QHostAddress(ui.iptIP3->toPlainText());
   portList[num] = ui.iptPort3->toPlainText().toUShort();
-  std::cout << ui.iptIP3->toPlainText().toStdString() << ui.iptPort3->toPlainText().toStdString() << std::endl;
   if (!isConnected[num])
   {
     ui.btn3->setStyleSheet(styleSheetGreen);
+    std::cout << "[UDP Publisher] : Starting Stream " << ui.iptIP1->toPlainText().toStdString()
+              << ui.iptPort1->toPlainText().toStdString() << std::endl;
     isConnected[num] = true;
   }
   else if (isConnected[num])
   {
     ui.btn3->setStyleSheet(styleSheetWhite);
+    std::cout << "[UDP Publisher] : Ending Stream " << ui.iptIP1->toPlainText().toStdString()
+              << ui.iptPort1->toPlainText().toStdString() << std::endl;
     isConnected[num] = false;
   }
 }
@@ -202,17 +229,26 @@ void MainWindow::on_btn3_clicked()
 void MainWindow::on_btn4_clicked()
 {
   int num = 3;
+  QString text = ui.iptIP4->toPlainText();
+  if (text.isEmpty())
+  {
+    QMessageBox::warning(this, "Warning", "Target IP not set");
+    return;
+  }
   address[num] = QHostAddress(ui.iptIP4->toPlainText());
   portList[num] = ui.iptPort4->toPlainText().toUShort();
-  std::cout << ui.iptIP4->toPlainText().toStdString() << ui.iptPort4->toPlainText().toStdString() << std::endl;
   if (!isConnected[num])
   {
     ui.btn4->setStyleSheet(styleSheetGreen);
+    std::cout << "[UDP Publisher] : Starting Stream " << ui.iptIP1->toPlainText().toStdString()
+              << ui.iptPort1->toPlainText().toStdString() << std::endl;
     isConnected[num] = true;
   }
   else if (isConnected[num])
   {
     ui.btn4->setStyleSheet(styleSheetWhite);
+    std::cout << "[UDP Publisher] : Ending Stream " << ui.iptIP1->toPlainText().toStdString()
+              << ui.iptPort1->toPlainText().toStdString() << std::endl;
     isConnected[num] = false;
   }
 }
@@ -220,17 +256,26 @@ void MainWindow::on_btn4_clicked()
 void MainWindow::on_btn5_clicked()
 {
   int num = 4;
+  QString text = ui.iptIP5->toPlainText();
+  if (text.isEmpty())
+  {
+    QMessageBox::warning(this, "Warning", "Target IP not set");
+    return;
+  }
   address[num] = QHostAddress(ui.iptIP5->toPlainText());
   portList[num] = ui.iptPort5->toPlainText().toUShort();
-  std::cout << ui.iptIP5->toPlainText().toStdString() << ui.iptPort5->toPlainText().toStdString() << std::endl;
   if (!isConnected[num])
   {
     ui.btn5->setStyleSheet(styleSheetGreen);
+    std::cout << "[UDP Publisher] : Starting Stream " << ui.iptIP1->toPlainText().toStdString()
+              << ui.iptPort1->toPlainText().toStdString() << std::endl;
     isConnected[num] = true;
   }
   else if (isConnected[num])
   {
     ui.btn5->setStyleSheet(styleSheetWhite);
+    std::cout << "[UDP Publisher] : Ending Stream " << ui.iptIP1->toPlainText().toStdString()
+              << ui.iptPort1->toPlainText().toStdString() << std::endl;
     isConnected[num] = false;
   }
 }
@@ -238,17 +283,26 @@ void MainWindow::on_btn5_clicked()
 void MainWindow::on_btn6_clicked()
 {
   int num = 5;
+  QString text = ui.iptIP6->toPlainText();
+  if (text.isEmpty())
+  {
+    QMessageBox::warning(this, "Warning", "Target IP not set");
+    return;
+  }
   address[num] = QHostAddress(ui.iptIP6->toPlainText());
   portList[num] = ui.iptPort6->toPlainText().toUShort();
-  std::cout << ui.iptIP6->toPlainText().toStdString() << ui.iptPort6->toPlainText().toStdString() << std::endl;
   if (!isConnected[num])
   {
     ui.btn6->setStyleSheet(styleSheetGreen);
+    std::cout << "[UDP Publisher] : Starting Stream " << ui.iptIP1->toPlainText().toStdString()
+              << ui.iptPort1->toPlainText().toStdString() << std::endl;
     isConnected[num] = true;
   }
   else if (isConnected[num])
   {
     ui.btn6->setStyleSheet(styleSheetWhite);
+    std::cout << "[UDP Publisher] : Ending Stream " << ui.iptIP1->toPlainText().toStdString()
+              << ui.iptPort1->toPlainText().toStdString() << std::endl;
     isConnected[num] = false;
   }
 }

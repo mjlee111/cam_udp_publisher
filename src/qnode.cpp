@@ -84,7 +84,7 @@ void QNode::callbackImage(const sensor_msgs::ImageConstPtr& msg)
   cv_bridge::CvImagePtr cv_ptr;
   cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
   imgRaw = cv_ptr->image;
-  cv::resize(Mat(cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8)->image), imgView, Size(480, 225), 0, 0,
+  cv::resize(Mat(cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8)->image), imgView, Size(360, 270), 0, 0,
              CV_INTER_LINEAR);
   Q_EMIT sigRcvImg();
 }
