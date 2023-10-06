@@ -2,8 +2,8 @@
  * @file udp.h
  * @author mjlee111
  * @brief
- * @version 0.1
- * @date 2023-07-30
+ * @version 1.0
+ * @date 2023-10-06
  *
  * @copyright Copyright (c) 2023
  *
