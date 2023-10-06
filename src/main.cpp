@@ -25,7 +25,7 @@ int main(int argc, char** argv)
   QApplication app(argc, argv);
   cam_udp_publisher::MainWindow w(argc, argv);
   w.setFixedSize(1024, 600);
-  w.setMenuBar(nullptr);
+  w.showFullScreen();
   w.show();
   app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
   int result = app.exec();
