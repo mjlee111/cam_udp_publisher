@@ -20,7 +20,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # qt_build provides the qt cmake glue, roscpp the comms for a default talker
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  std_msgs cv_bridge
+  std_msgs 
+  cv_bridge
   )
 include_directories(${catkin_INCLUDE_DIRS})
 # Use this to define what the package will export (e.g. libs, headers).
@@ -33,8 +34,11 @@ catkin_package()
 ##############################################################################
 
 # included via the dependency call in package.xml
-find_package(Qt5 COMPONENTS Widgets Network Gui Core REQUIRED)
-include_directories(${Qt5Core_INCLUDE_DIRS} ${Qt5Network_INCLUDE_DIRS})
+find_package(Qt5 REQUIRED COMPONENTS Widgets Network Gui Core)
+find_package(OpenCV 4.5.2 REQUIRED)
+
+include_directories(${Qt5Widgets_INCLUDE_DIRS} ${Qt5Core_INCLUDE_DIRS} ${Qt5Network_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
+
 
 ##############################################################################
 # Sections
@@ -59,6 +63,6 @@ file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINK
 ##############################################################################
 
 add_executable(cam_udp_publisher ${QT_SOURCES} ${QT_RESOURCES_CPP} ${QT_FORMS_HPP} ${QT_MOC_HPP})
-target_link_libraries(cam_udp_publisher Qt5::Widgets Qt5::Gui ${QT_LIBRARIES} ${catkin_LIBRARIES})
+target_link_libraries(cam_udp_publisher Qt5::Widgets Qt5::Gui Qt5::Network ${QT_LIBRARIES} ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${OpenCV_LIBS})
 install(TARGETS cam_udp_publisher RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 

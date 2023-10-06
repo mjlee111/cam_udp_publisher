@@ -24,6 +24,11 @@
 #include <string>
 #include <QThread>
 #include <QStringListModel>
+#include <QString>
+#include <sensor_msgs/Image.h>
+#include <cv_bridge/cv_bridge.h>
+#include <ros/topic.h>
+#include <ros/master.h>
 
 /*****************************************************************************
 ** Namespaces
@@ -34,6 +39,7 @@ namespace cam_udp_publisher
 /*****************************************************************************
 ** Class
 *****************************************************************************/
+using namespace cv;
 
 class QNode : public QThread
 {
@@ -44,12 +50,28 @@ public:
   bool init();
   void run();
 
+  void updateTopics();
+  void changeSubTopic();
+
+  QString getStringTopicNew;
+
+  QStringList topicList;
+
+  Mat imgRaw;
+  Mat imgView;
+
 Q_SIGNALS:
   void rosShutdown();
+  void sigRcvImg();
+  void sigReadTopic();
 
 private:
   int init_argc;
   char** init_argv;
+
+  ros::Subscriber subImage;
+
+  void callbackImage(const sensor_msgs::ImageConstPtr& msg);
 };
 
 }  // namespace cam_udp_publisher
